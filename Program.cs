@@ -16,7 +16,7 @@ namespace Methods
         static int combomultiplier;
         static int currentscore; //stores the score for the shot the player is currently making
         static void Main(string[] args)
-        {
+        {            
             score = 0;
             enemyScoreValue = 100;
             playerHealth = 100;
@@ -67,12 +67,12 @@ namespace Methods
                 Console.WriteLine();
                 Console.WriteLine("You've shot the enemy!");
                 combomultiplier++;
-                score = score + enemyScoreValue * combomultiplier;
+                ScoreCalc(score, enemyScoreValue, combomultiplier);    //calls a method that returns a value            
                 currentscore = enemyScoreValue * combomultiplier;
                 Console.WriteLine("You've earned " + currentscore + " points!");
                 return;
             }
-            else //if (Console.ReadKey().Key == ConsoleKey.J)
+            else
             {
                 Console.WriteLine();
                 Console.WriteLine("You've been shot!");
@@ -85,6 +85,10 @@ namespace Methods
                 }                
             return;
             }        
+        }
+        static int ScoreCalc(int previousScore, int newenemyScoreValue, int newcombomultiplier)
+        {
+            return score = previousScore + newenemyScoreValue * newcombomultiplier;
         }
     }
 }
